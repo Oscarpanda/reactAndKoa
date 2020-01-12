@@ -9,6 +9,7 @@ import {
 const Home = props => ( <div >
     <h1 > {props.title} </h1>
     < Link to = "/list" > 跳转列表页 </Link>
+    < Link to = "/todolist" > 日程 </Link>
   </div>
 )
 
