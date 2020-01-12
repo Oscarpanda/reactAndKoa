@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --config build/webpack.dev.config.js"
+    "start": "webpack-dev-server --hot --config build/webpack.dev.config.js",
+    "server": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,12 @@
   },
   "homepage": "https://github.com/Oscarpanda/reactAndKoa#readme",
   "dependencies": {
+    "@babel/register": "^7.8.0",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "webpack": "^4.41.5"
   },
   "devDependencies": {

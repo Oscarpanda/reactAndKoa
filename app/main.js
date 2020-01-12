@@ -3,17 +3,15 @@ import {
   render
 } from 'react-dom';
 import './style/index.less';
+import { BrowserRouter } from "react-router-dom";
 import logo from './static/timg.png'
-
-function App() {
-  return <div >
-    <h1>Hello  Koas
-    </h1>
-    <img src={logo} className="logo"/>
-    </div>
+import  Router  from "./router";
 
 
-}
+render(
+    <BrowserRouter>
+      <Router/>
+    </BrowserRouter>,
+    document.getElementById('app'));
 
-render( < App / > , document.getElementById('app'));
 
