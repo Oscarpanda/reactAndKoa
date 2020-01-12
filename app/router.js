@@ -1,23 +1,7 @@
 import {Link, Switch, Route } from "react-router-dom";
 import React from "react";
-const Home = () => (
-  <div>
-    <h1>首页</h1>
-    <Link to="/list">
-      跳转列表页面
-    </Link>
-  </div>
-)
-const list = [
-   'react真好玩',
-   'koa有点意思',
-   'ssr更有意思'
-]
-const List = () => (
-  <ul>
-    {list.map((item, i) => <li key={i} >{item}</li>)}
-  </ul>
-)
+import Home from './pages/home';
+import List from './pages/list';
 export default () => (
 
   <Switch>
