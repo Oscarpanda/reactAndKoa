@@ -21,6 +21,28 @@ module.exports = {
           }
 
         }
+      },
+      {
+        test: /\.html$/,
+        include: path.join(__dirname, "..", "app"),
+        loader: "html-loader",
+      },
+      {
+        test: /\.less/,
+        include: path.join(__dirname, "..", "app"),
+        use: [
+          "style-loader",
+          "css-loader",
+          "less-loader",
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "url-loader?limit=1000"
+      },
+      {
+        test: /\.(woff2|eot|ttf|otf)(\?.*)?$/,
+        loader: 'file-loader'
       }
     ]
   },
