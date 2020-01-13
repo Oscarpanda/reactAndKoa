@@ -1,18 +1,15 @@
 import React from 'react';
-import {
-  connect
-} from 'react-redux';
+import Footer from "../components/Footer"
+import AddTodo from  "../containers/AddTodo";
+import VisibleTodoList from  "../containers/VisibleTodoList";
 
-const List = (props) => (
-  <ul>
-    {props.list.map((item, i) => <li key={i} >{item}</li>)}
-  </ul>
-)
+const TodoLists = () => (
+  <div>
+    <AddTodo/>
+    <VisibleTodoList/>
+    <Footer/>
+  </div>
 
-function mapStateTpProps(state) {
-  return {
-    ...state.list
-  };
-}
+);
 
-export default connect(mapStateTpProps)(List)
+export default TodoLists;

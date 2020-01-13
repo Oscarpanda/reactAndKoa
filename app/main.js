@@ -6,6 +6,7 @@ import createStore from './redux/store/create';
 const defaultStore =window.__STORE__ || {};
 const store = createStore(defaultStore);
 
+
 import {
   render
 } from 'react-dom';
