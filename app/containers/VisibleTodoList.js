@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import {toggleTodo} from "../redux/actions"
+import { toggleTodo,  deleteTodo } from "../redux/actions"
 import TodoList from "../components/TodoList"
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case "SHOW_COMPLETED": 
+    case "SHOW_COMPLETED":
       return todos.filter( t => t.completed)
-    case "SHOW_ACTIVE": 
+    case "SHOW_ACTIVE":
       return todos.filter( t => !t.completed)
     case "SHOW_ALL":
     default:
@@ -22,11 +22,15 @@ const mapDispatchToProps = dispatch => {
   return {
     onTodoClick: id => {
       dispatch(toggleTodo(id))
+    },
+    onCancelClick: id => {
+      dispatch(deleteTodo(id))
     }
+
   }
 }
 const VisibleTodoList = connect(
   mapStateToProps,
-  mapDispatchToProps, 
+  mapDispatchToProps,
 ) (TodoList)
 export default VisibleTodoList;
