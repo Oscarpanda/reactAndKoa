@@ -7,6 +7,7 @@ import {
   renderToString
 } from "react-dom/server";
 import React from 'react';
+import api from './api/index'
 
 const routes = new Router();
 
@@ -31,5 +32,6 @@ routes.get('/list', (ctx, next) => {
   })
   next();
 })
+routes.use("/api", api.routes(), api.allowedMethods())
 
 export default routes;

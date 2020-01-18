@@ -1,9 +1,10 @@
-const koaRouter = require("koa-router");
-const api = new koaRouter()
-api.get("/test", async (ctx) =>{
+import Router from "koa-router";
+
+const api = new Router();
+api.get("/test", (ctx) =>{
   ctx.body = "test";
-})
-api.post("/testPost", async (ctx) =>{
+});
+api.post("/testPost", (ctx) =>{
   ctx.body = "test";
-})
-module.exports = api;
+});
+export default api;
