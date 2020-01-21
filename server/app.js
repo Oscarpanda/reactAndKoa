@@ -6,6 +6,7 @@ import todoList from "./db/todoList";
 import {
   renderToString
 } from "react-dom/server";
+import bodyParser from 'koa-bodyparser';
 
 const app = new Koa();
 
@@ -14,6 +15,7 @@ testData.save(function (err, fluffy) {
   if (err) return console.error(err);
   console.log("储存成功");
 });
+app.use(bodyParser());
 app.use(templating);
 app.use(
   routes.routes(), routes.allowedMethods()
