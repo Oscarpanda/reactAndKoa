@@ -5,13 +5,24 @@ import React from 'react';
 import {
   connect
 } from 'react-redux';
-
-const Home = props => ( <div >
-    <h1 > {props.title} </h1>
-    < Link to = "/list" > 跳转列表页 </Link>
-    < Link to = "/todolist" > 日程 </Link>
-  </div>
-)
+import {HomeAction} from "../redux/actions"
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  static asyncData(store) {
+    store.dispatch(HomeAction())
+  }
+  render() {
+    return (
+      <div >
+        <h1 > {this.props.title} </h1>
+        < Link to = "/list" > 跳转列表页 </Link>
+        < Link to = "/todolist" > 日程 </Link>
+      </div>
+    )
+  }
+}
 
 /**
  * 通过connect将redux中的数据传递进入组件

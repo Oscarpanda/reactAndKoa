@@ -25,3 +25,8 @@ export const toggleTodo = id => {
     id
   }
 }
+export const HomeAction = () => {
+  return {
+    type: 'INIT_HOME',
+  }
+}

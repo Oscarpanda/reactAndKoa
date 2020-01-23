@@ -16,7 +16,6 @@ testData.save(function (err, fluffy) {
   console.log("储存成功");
 });
 app.use(bodyParser());
-app.use(templating);
 app.use(
   routes.routes(), routes.allowedMethods()
 );

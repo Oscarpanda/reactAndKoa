@@ -1,9 +1,9 @@
 import Router from "koa-router";
 import todoListModel from "./../../db/todoList";
 const todoList = new Router();
-todoList.post("/findListByName", async (ctx) => {
+todoList.post("/findListByName", (ctx) => {
   let name = ctx.request.body.name;
-  let result = await todoListModel.find({name})
+  let result = todoListModel.find({name})
   // let result = todoListModel.find({name}).then(result => {
   //   let res = result.map(item => item.ListContent);
   //   ctx.body = res;
