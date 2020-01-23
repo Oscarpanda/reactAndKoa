@@ -27,8 +27,7 @@ export default function (ctx, template) {
       const promises = routes
         .filter(item => item.route.component.asyncData) // 过滤掉没有asyncData的组件
         .map(item => {
-          return
-          item.route.component.asyncData(store, item.match)
+          return item.route.component.asyncData(store, item.match)
         }); // 调用组件内部的asyncData,这里就修改了store
       const render = templating(template)
       const html = renderToString(
@@ -38,6 +37,7 @@ export default function (ctx, template) {
             <RouterConfig/>
           </StaticRouter>
         </Provider>);
+      console.log(store.getState());
       const body = render({
         html,
         store: `<script>window.__STORE__ = ${JSON.stringify(store.getState())}</script>`
