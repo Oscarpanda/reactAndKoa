@@ -1,5 +1,5 @@
-import Router from "koa-router";
-import todoList from "./todolist";
+const Router = require("koa-router");
+const todoList = require("./todolist");
 
 const api = new Router();
 api.get("/test", (ctx) =>{
@@ -9,4 +9,4 @@ api.post("/testPost", (ctx) =>{
   ctx.body = "test";
 });
 api.use("/todoList", todoList.routes(), todoList.allowedMethods())
-export default api;
+module.exports = api;

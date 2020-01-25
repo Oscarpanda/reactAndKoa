@@ -1,4 +1,4 @@
-import mongoose from "./config";
+const mongoose = require("./config");
 let todoListSchema = mongoose.Schema({
   name: String,
   ListContent: String,
@@ -10,4 +10,4 @@ let todoListSchema = mongoose.Schema({
 })
 let todoList = mongoose.model("todoList", todoListSchema);
 
-export default todoList;
+module.exports =  todoList;

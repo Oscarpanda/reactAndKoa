@@ -1,12 +1,12 @@
-import React from 'react';
-import Koa from 'koa';
-import routes from "./router";
-import templating from "./templating"
-import todoList from "./db/todoList";
-import {
+const React = require('react');
+const Koa = require('koa');
+const routes = require("./router");
+const templating = require("./templating")
+const todoList = require("./db/todoList");
+const {
   renderToString
-} from "react-dom/server";
-import bodyParser from 'koa-bodyparser';
+} = require( "react-dom/server");
+const bodyParser = require( 'koa-bodyparser');
 
 const app = new Koa();
 

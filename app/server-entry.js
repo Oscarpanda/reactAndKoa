@@ -6,7 +6,9 @@ import { renderRoutes, matchRoutes } from "react-router-config";
 export default ctx => {
   return new Promise((resolve, reject) => {
     const { router, store, routerconfig }  = createApp();
-    const routes = matchRoutes(RouterConfigs, ctx.url);
+    console.log('url', ctx.url);
+    const routes = matchRoutes(routerconfig, ctx.url);
+    console.log("routes", routes);
     if (routes.length === 0) {
       return reject({
         code: 404, message: "NOT PAGE",
@@ -24,5 +26,7 @@ export default ctx => {
         </StaticRouter>
       </Provider>
     )
-  }).catch(reject)
+  }).catch((error) => {
+    console.log(error);
+  })
 }

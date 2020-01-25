@@ -1,14 +1,11 @@
-import fs from 'fs';
-import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
-import RouterConfig from '../app/router'
-import React from 'react';
-import path from 'path';
-import { Provider } from 'react-redux';
+const fs = require( 'fs');
+const { renderToString } = require( 'react-dom/server')
+const { StaticRouter } = require( 'react-router-dom')
+const React = require( 'react');
+const path = require( 'path');
+const { Provider } = require( 'react-redux');
 
-import createStore from '../app/redux/store/create';
-import { renderRoutes, matchRoutes } from "react-router-config";
-import RouterConfigs from '../app/routerconfig'
+const { renderRoutes, matchRoutes } = require( "react-router-config");
 
 
 // 匹配模板中的<!-- -->
@@ -16,16 +13,15 @@ function templating(template) {
   return props => template.replace(/<!--([\s\S]*?)-->/g, (_, key) => props[key.trim()]);
 }
 
-export default function (ctx, serverBundle,  template) {
+module.exports = async function (ctx, serverBundle,  template) {
   try {
-      const store = createStore();
       const render = templating(template)
-      const jsx = serverBundle(ctx);
+      const jsx = await serverBundle(ctx);
       const html = renderToString(jsx);
-      console.log(store.getState());
+      console.log(ctx.store.getState());
       const body = render({
         html,
-        store: `<script>window.__STORE__ = ${JSON.stringify(store.getState())}</script>`
+        store: `<script>window.__STORE__ = ${JSON.stringify(ctx.store.getState())}</script>`
       });
       ctx.body = body;
   } catch (err) {

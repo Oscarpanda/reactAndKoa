@@ -1,5 +1,5 @@
-import Router from "koa-router";
-import todoListModel from "./../../db/todoList";
+const  Router = require("koa-router");
+const  todoListModel = require("./../../db/todoList");
 const todoList = new Router();
 todoList.post("/findListByName", (ctx) => {
   let name = ctx.request.body.name;
@@ -13,4 +13,4 @@ todoList.post("/findListByName", (ctx) => {
 todoList.get("/findListByName", (ctx) => {
   ctx.body = "todolist";
 })
-export default todoList;
+module.exports =  todoList;

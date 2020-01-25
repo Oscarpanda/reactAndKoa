@@ -1,13 +1,12 @@
-import Router from 'koa-router';
-import RouterConfig from '../../app/router';
-import { StaticRouter } from 'react-router-dom';
-import { renderToString } from "react-dom/server";
-import React from 'react';
-import api from './api/index'
-import render from "./../templating";
-import fs from 'fs';
-import path from 'path';
-import serverBundle from "../../dist/bundle.js"
+const Router = require( 'koa-router');
+const { StaticRoute } = require('react-router-dom');
+const { renderToString } = require("react-dom/server");
+const React = require('react');
+const api = require('./api/index');
+const render = require("./../templating");
+const fs = require('fs');
+const path = require('path');
+const serverBundle = require("../../dist/bundle.js")
 
 const routes = new Router();
 
@@ -40,4 +39,4 @@ routes.get('*', (ctx, next) => {
   next();
 })
 
-export default routes;
+module.exports =  routes;
