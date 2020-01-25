@@ -1,16 +1,13 @@
 import Router from 'koa-router';
 import RouterConfig from '../../app/router';
-import {
-  StaticRouter
-} from 'react-router-dom';
-import {
-  renderToString
-} from "react-dom/server";
+import { StaticRouter } from 'react-router-dom';
+import { renderToString } from "react-dom/server";
 import React from 'react';
 import api from './api/index'
 import render from "./../templating";
 import fs from 'fs';
 import path from 'path';
+import serverBundle from "../../dist/bundle.js"
 
 const routes = new Router();
 
@@ -38,7 +35,7 @@ const routes = new Router();
 routes.use("/api", api.routes(), api.allowedMethods())
 routes.get('*', (ctx, next) => {
   const template = fs.readFileSync(path.join(__dirname, './../template/server.html'), 'utf-8');
-  render(ctx,template);
+  render(ctx, serverBundle.default,template);
   console.log('*');
   next();
 })
