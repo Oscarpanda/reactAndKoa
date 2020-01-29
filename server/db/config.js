@@ -1,6 +1,9 @@
 const mongoos = require("mongoose");
 const Db_Url = "mongodb://localhost:27017/test1";
-mongoos.connect(Db_Url);
+mongoos.connect(Db_Url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoos.connection.on("connected", function(data) {
   console.log('Mongoose connection open to ' + Db_Url);
 })

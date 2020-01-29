@@ -1,11 +1,8 @@
-import {
-  Link
-} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import React from 'react';
-import {
-  connect
-} from 'react-redux';
+import { connect } from 'react-redux';
 import {HomeAction} from "../redux/actions"
+import style from './../style/index.css';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +13,9 @@ class Home extends React.Component {
   render() {
     return (
       <div >
-        <h1 > {this.props.title} </h1>
+        <h1 className={style.heads}       onClick= {() => {console.log("click")}}
+
+        > {this.props.title} </h1>
         < Link to = "/list" > 跳转列表页 </Link>
         < Link to = "/todolist" > 日程 </Link>
       </div>
