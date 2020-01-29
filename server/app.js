@@ -3,6 +3,7 @@ const Koa = require('koa');
 const routes = require("./router");
 const templating = require("./templating")
 const todoList = require("./db/todoList");
+const path = require("path");
 const {
   renderToString
 } = require( "react-dom/server");
@@ -16,6 +17,7 @@ testData.save(function (err, fluffy) {
   console.log("储存成功");
 });
 app.use(bodyParser());
+app.use(require('koa-static')(path.join(__dirname, '../dist')));
 app.use(
   routes.routes(), routes.allowedMethods()
 );

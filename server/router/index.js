@@ -33,7 +33,7 @@ const routes = new Router();
 // })
 routes.use("/api", api.routes(), api.allowedMethods())
 routes.get('*', (ctx, next) => {
-  const template = fs.readFileSync(path.join(__dirname, './../template/server.html'), 'utf-8');
+  const template = fs.readFileSync(path.join(__dirname, './../../dist/index.html'), 'utf-8');
   render(ctx, serverBundle.default,template);
   console.log('*');
   next();
