@@ -5,7 +5,7 @@ import List from './pages/list';
 import ToDoList from './pages/todolist';
 export default [
   {
-    path: "/",
+    path: "/Home",
     component: Home,
     exact: true,
   },

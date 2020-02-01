@@ -14,9 +14,8 @@ class Home extends React.Component {
     return (
       <div >
         <h1 className={style.heads}       onClick= {() => {console.log("click")}}
-
         > {this.props.title} </h1>
-        < Link to = "/list" > 跳转列表页 </Link>
+        < Link to = "/list"> 跳转列表页 </Link>
         < Link to = "/todolist" > 日程 </Link>
       </div>
     )
