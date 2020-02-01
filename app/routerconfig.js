@@ -5,6 +5,11 @@ import List from './pages/list';
 import ToDoList from './pages/todolist';
 export default [
   {
+    path: "/",
+    component: Home,
+    exact: true,
+  },
+  {
     path: "/Home",
     component: Home,
     exact: true,

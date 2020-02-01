@@ -39,7 +39,7 @@ function startDev (app, templatePath) {
     if (state.errors.length ) return
     clientHtml =readFile(
       devMiddleware.fileSystem,
-      "index.html"
+      "template.html"
     )
   })
   app.use(require("koa-webpack-hot-middleware")(clientCompiler));
