@@ -21,8 +21,8 @@ let template;
 let serverBundle;
 let readyPromise;
 if (isPro) {
-  template = fs.readFileSync(path.join(__dirname, './../dist/index.html'), 'utf-8');
-  serverBundle = require("../dist/bundle.js").default;
+  template = fs.readFileSync(path.join(__dirname, './../dist/template.html'), 'utf-8');
+  serverBundle = require("../dist/js/bundle.js").default;
 } else {
   devHelper.startDev(app, path.join(__dirname, "./../app/template/app.html"))
 }

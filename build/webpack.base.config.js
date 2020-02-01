@@ -1,10 +1,13 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const config = require("./config")[process.env.NODE_ENV];
 module.exports = {
   entry: path.join(__dirname, "..", "app/main.js"),
   output: {
     path: path.join(__dirname, "..", "dist"),
-    filename: "index.js",
+    filename: config.noHash ? "js/[name].js" : "js/[name].[chunkhash].js",
   },
   module: {
     rules: [
@@ -63,6 +66,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/[name].css"
     }),
-  ]
+  ],
+  optimization: {
+    // // 压缩css，由于配置css的压缩会覆盖默认的js压缩，所以js压缩也需要手动配置下
+    // minimizer: [
+    //   new UglifyJsPlugin({
+    //     cache: true,
+    //     parallel: true,
+    //     sourceMap: true // set to true if you want JS source maps
+    //   }),
+    //   new OptimizeCSSAssetsPlugin({})
+    // ]
+  }
 
 }

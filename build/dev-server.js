@@ -49,7 +49,7 @@ function startDev (app, templatePath) {
   serverCompiler.watch({}, (err, states) => {
     if (err) throw err;
     if (states.toJson().errors.length) return
-    let bundleString = readFile(mfs, "bundle.js")
+    let bundleString = readFile(mfs, "js/bundle.js")
     bundle = eval(bundleString).default
   })
 }
