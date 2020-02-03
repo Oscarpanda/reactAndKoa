@@ -16,12 +16,14 @@ import './style/index.less';
 import { BrowserRouter } from "react-router-dom";
 import logo from './static/timg.png'
 import  Router  from "./router";
+import routerconfig from "./routerconfig";
+import { renderRoutes } from "react-router-config";
 
 
 render(
     <Provider store={store}>
       <BrowserRouter>
-        <Router/>
+        {renderRoutes(routerconfig)}
       </BrowserRouter>
     </Provider>,
     document.getElementById('app'));
