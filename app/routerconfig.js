@@ -4,10 +4,12 @@ import Home from './pages/home';
 import List from './pages/list';
 import BindThis from './pages/bindthis';
 import ToDoList from './pages/todolist';
+import Parent from './pages/useState';
+import conter2 from './pages/useContext';
 export default [
   {
     path: "/",
-    component: BindThis,
+    component: conter2,
     exact: true,
   },
   {
