@@ -5,7 +5,7 @@ import List from './pages/list';
 import BindThis from './pages/hookdemo/bindthis';
 import ToDoList from './pages/todolist';
 import Parent from './pages/hookdemo/useState';
-import conter2 from './pages/hookdemo/useLayoutEffect';
+import conter2 from './pages/hookdemo/useImperativehandle';
 export default [
   {
     path: "/",
