@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Oscarpanda/reactAndKoa#readme",
   "dependencies": {
     "@babel/register": "^7.8.0",
+    "axios": "^0.19.2",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",

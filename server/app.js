@@ -33,7 +33,7 @@ routes.get('*', async (ctx, next) => {
 
   } else {
     const { bundle, clientHtml } = devHelper.getBundleAndClientHtml();
-    render(ctx, bundle, clientHtml);
+    await render(ctx, bundle, clientHtml);
   }
   console.log('*');
   next();

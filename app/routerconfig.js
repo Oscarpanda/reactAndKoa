@@ -22,4 +22,9 @@ export default [
     component: List,
     exact: true,
   },
+  {
+    path: "/todolist",
+    component: ToDoList,
+    exact: true,
+  },
 ]

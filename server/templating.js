@@ -16,14 +16,18 @@ function templating(template) {
 module.exports = async function (ctx, serverBundle,  template) {
   try {
       const render = templating(template)
+      const startTime = new Date();
       const jsx = await serverBundle(ctx);
+      console.log("jsx", jsx, new Date() - startTime);
       const html = renderToString(jsx);
       console.log(ctx.store.getState());
       const body = render({
         html,
         store: `<script>window.__STORE__ = ${JSON.stringify(ctx.store.getState())}</script>`
       });
+      console.log('body');
       ctx.body = body;
+
   } catch (err) {
     ctx.body = err.message;
   }
