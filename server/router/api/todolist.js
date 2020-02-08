@@ -14,6 +14,7 @@ todoList.post("/addList", async (ctx) => {
   let result = await testData.save();
   if (result) {
     ctx.body = {
+      id: result._id,
       code: 0,
       msg: "success"
     };

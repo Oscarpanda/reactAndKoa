@@ -1,5 +1,5 @@
 import React from "react";
-const Todo = ({ onClick, completed, text, CancelClick}) =>(
+const Todo = ({ onClick, completed, ListContent, CancelClick}) =>(
   <div>
     <li
       onClick = {onClick}
@@ -9,7 +9,7 @@ const Todo = ({ onClick, completed, text, CancelClick}) =>(
          marginLeft: "30px",
        }
       }
-    >{text}</li>
+    >{ListContent}</li>
     <span onClick={CancelClick}> x</span>
 
   </div>

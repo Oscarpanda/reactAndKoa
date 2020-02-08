@@ -1,9 +1,26 @@
 let nextTodoId = 0;
-export const addTodo = text => {
+import axios from "axios";
+export const addTodo = (text, id, name = "test" ) => {
   return {
     type: "ADD_TODO",
-    id: nextTodoId++,
-    text
+    text,
+    name,
+    _id: id
+  }
+}
+export const addTodoToDB = (text, name = "test") => {
+  return function (dispatch) {
+    return axios({
+      method: "post",
+      url: "http://localhost:9000/api/todoList/addList",
+      data: {
+        name,
+        ListContent: text,
+      },
+    }).then((data) => {
+      console.log("axios", data);
+      dispatch(addTodo(text, data.data.id, name));
+    })
   }
 }
 export const displayTodo = list => {

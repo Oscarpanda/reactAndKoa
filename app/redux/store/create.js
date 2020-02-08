@@ -1,6 +1,5 @@
-import {
-  createStore
-} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from "redux-thunk";
 import reducers from '../reducers';
 
 /**
@@ -9,4 +8,4 @@ import reducers from '../reducers';
  * @param data
  * @returns {*}
  */
-export default data => createStore(reducers, data);
+export default data => createStore(reducers, data, applyMiddleware(thunkMiddleware));

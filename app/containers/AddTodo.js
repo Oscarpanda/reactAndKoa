@@ -1,18 +1,18 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addTodo} from "../redux/actions"
+import {addTodoToDB} from "../redux/actions"
 let AddTodo = ({dispatch}) => {
   let input
   return (
     <div>
-      <form 
+      <form
         onSubmit={
           e => {
             e.preventDefault()
             if (!input.value.trim()) {
-              return 
+              return
             }
-            dispatch(addTodo(input.value))
+            dispatch(addTodoToDB(input.value))
             input.value = ""
           }
         }
