@@ -12,11 +12,6 @@ const app = new Koa();
 const env = process.env.NODE_ENV;
 const isPro = env === "production";
 
-let testData = new todoList({name: "test", ListContent: "1"});
-testData.save(function (err, fluffy) {
-  if (err) return console.error(err);
-  console.log("储存成功");
-});
 let template;
 let serverBundle;
 let readyPromise;
