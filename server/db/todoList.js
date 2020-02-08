@@ -5,8 +5,7 @@ let todoListSchema = mongoose.Schema({
   updated: {
     type: Date,
     default: Date.now
-  },
-  listID: String,
+  }
 })
 let todoList = mongoose.model("todoList", todoListSchema);
 

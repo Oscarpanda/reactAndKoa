@@ -6,6 +6,12 @@ export const addTodo = text => {
     text
   }
 }
+export const displayTodo = list => {
+  return {
+    type: "DISPLAY_TODO",
+    list
+  }
+}
 export const deleteTodo = id => {
   return {
     type: "DELETE_TODO",

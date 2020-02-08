@@ -1,5 +1,7 @@
 const todos = (state = [], action) => {
   switch (action.type) {
+    case "DISPLAY_TODO":
+      return action.list
     case "DELETE_TODO":
       return state.filter(item => item.id !== action.id);
     case "ADD_TODO":

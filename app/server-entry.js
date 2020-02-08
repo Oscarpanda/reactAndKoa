@@ -18,8 +18,8 @@ export default ctx => {
       .map(item => {
         return item.route.component.asyncData(store, item.match)
     }); // 调用组件内部的asyncData,这里就修改了store
-    // Promise.all(promises).then(() => {
-      setTimeout(() => {
+    Promise.all(promises).then(() => {
+      // setTimeout(() => {
       console.log("promisesAll");
       ctx.store = store;
       resolve(
@@ -30,8 +30,8 @@ export default ctx => {
         </Provider>
       )
 
-      }, 5000);
-    // })
+      // }, 5000);
+    })
   }).catch((error) => {
     console.log(error);
   })

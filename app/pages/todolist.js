@@ -4,6 +4,7 @@ import AddTodo from  "../containers/AddTodo";
 import VisibleTodoList from  "../containers/VisibleTodoList";
 import { render } from 'react-dom';
 import axios from "axios";
+import {displayTodo} from "../redux/actions"
 
 
 class TodoLists extends React.Component{
@@ -20,7 +21,7 @@ class TodoLists extends React.Component{
       }
     }).then((data) => {
       console.log("axios", data);
-      // store.todos = data.data;
+      store.dispatch(displayTodo(data.data));
     })
   }
   render() {
