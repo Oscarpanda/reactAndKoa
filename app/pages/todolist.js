@@ -15,7 +15,7 @@ class TodoLists extends React.Component{
     console.log('asyncData');
     return axios({
       method: "post",
-      url: "http://localhost:9000/api/todoList/findListByName",
+      url: "http://127.0.0.1:9000/api/todoList/findListByName",
       data: {
         name: "test"
       }

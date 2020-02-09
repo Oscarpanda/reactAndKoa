@@ -13,7 +13,7 @@ export const addTodoToDB = (text, name = "test") => {
   return function (dispatch) {
     return axios({
       method: "post",
-      url: "http://localhost:9000/api/todoList/addList",
+      url: "http://127.0.0.1:9000/api/todoList/addList",
       data: {
         name,
         ListContent: text,
@@ -41,7 +41,7 @@ export const deleteTodoDB = id => {
   return (dispatch) => {
     return axios({
       method: "post",
-      url: "http://localhost:9000/api/todoList/deleteListByID",
+      url: "http://127.0.0.1:9000/api/todoList/deleteListByID",
       data: {
         id
       },
