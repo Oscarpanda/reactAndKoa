@@ -24,7 +24,7 @@ if (isPro) {
 routes.get('*', async (ctx, next) => {
   console.log("*url", ctx.url)
   if (isPro) {
-    render(ctx, serverBundle, template);
+    await render(ctx, serverBundle, template);
 
   } else {
     const { bundle, clientHtml } = devHelper.getBundleAndClientHtml();
