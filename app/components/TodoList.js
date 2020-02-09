@@ -4,9 +4,9 @@ const TodoList = ({ todos, onTodoClick , onCancelClick}) => (
   <ul>
     {
       todos.map( todo => (
-        <Todo key = {todo._id} {...todo} onClick = {() =>
-          onTodoClick(todo._id)
-        } CancelClick={() => onCancelClick(todo._id)}/>
+        <Todo key = {todo.id} {...todo} onClick = {() =>
+          onTodoClick(todo.id)
+        } CancelClick={() => onCancelClick(todo.id)}/>
       ))
     }
   </ul>

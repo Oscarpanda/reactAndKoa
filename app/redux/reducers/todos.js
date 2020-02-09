@@ -3,19 +3,19 @@ const todos = (state = [], action) => {
     case "DISPLAY_TODO":
       return action.list
     case "DELETE_TODO":
-      return state.filter(item => item._id !== action.id);
+      return state.filter(item => item.id !== action.id);
     case "ADD_TODO":
       return [
         ...state,
         {
-          _id: action._id,
+          id: action.id,
           ListContent: action.text,
           completed: false
         }
       ]
     case "TOGGLE_TODO":
       return state.map(todo =>
-        (todo._id === action.id) ?
+        (todo.id === action.id) ?
         {...todo, completed: !todo.completed} : todo
       )
 

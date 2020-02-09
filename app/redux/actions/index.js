@@ -1,14 +1,15 @@
-let nextTodoId = 0;
 import axios from "axios";
+import uuid from "uuid/v1"
 export const addTodo = (text, id, name = "test" ) => {
   return {
     type: "ADD_TODO",
     text,
     name,
-    _id: id
+    id
   }
 }
 export const addTodoToDB = (text, name = "test") => {
+  let id = uuid()
   return function (dispatch) {
     return axios({
       method: "post",
@@ -16,10 +17,11 @@ export const addTodoToDB = (text, name = "test") => {
       data: {
         name,
         ListContent: text,
+        id
       },
     }).then((data) => {
       console.log("axios", data);
-      dispatch(addTodo(text, data.data.id, name));
+      dispatch(addTodo(text, id, name));
     })
   }
 }
@@ -33,6 +35,21 @@ export const deleteTodo = id => {
   return {
     type: "DELETE_TODO",
     id
+  }
+}
+export const deleteTodoDB = id => {
+  return (dispatch) => {
+    return axios({
+      method: "post",
+      url: "http://localhost:9000/api/todoList/deleteListByID",
+      data: {
+        id
+      },
+    }).then((data) => {
+      console.log("axios", data);
+      dispatch(deleteTodo(id));
+    })
+
   }
 }
 export const setVisibilityFilter = filter => {
