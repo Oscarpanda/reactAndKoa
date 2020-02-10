@@ -6,6 +6,7 @@ import { render } from 'react-dom';
 import axios from "axios";
 import {displayTodo} from "../redux/actions"
 import http from "./../utils/http.js"
+import Hello from "./../components/hello";
 
 
 class TodoLists extends React.Component{
@@ -22,6 +23,7 @@ class TodoLists extends React.Component{
   render() {
     return (
       <div>
+        <Hello/>
         <AddTodo/>
         <VisibleTodoList/>
         <Footer/>
