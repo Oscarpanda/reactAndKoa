@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from "redux-thunk";
 import reducers from '../reducers';
+import reduxlogger from '../../utils/reduxLogger';
 
 /**
  * 为什么写成函数？
@@ -8,4 +9,4 @@ import reducers from '../reducers';
  * @param data
  * @returns {*}
  */
-export default data => createStore(reducers, data, applyMiddleware(thunkMiddleware));
+export default data => createStore(reducers, data, applyMiddleware(reduxlogger,thunkMiddleware));

@@ -14,9 +14,7 @@ class TodoLists extends React.Component{
     super();
   }
   static asyncData(store) {
-    console.log('asyncData');
     return http("api/todoList/findListByName", {name: "test"}).then((data) => {
-      console.log("axios", data);
       store.dispatch(displayTodo(data.data));
     })
   }

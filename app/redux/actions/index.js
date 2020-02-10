@@ -18,7 +18,6 @@ export const addTodoToDB = (text, name = "test") => {
   };
   return function (dispatch) {
     return http("api/todoList/addList", datas).then((data) => {
-      console.log("axios", data);
       dispatch(addTodo(text, id, name));
     })
   }
@@ -42,7 +41,6 @@ export const deleteTodoDB = id => {
   return (dispatch) => {
     return http("api/todoList/deleteListByID", datas
     ).then((data) => {
-      console.log("axios", data);
       dispatch(deleteTodo(id));
     })
 

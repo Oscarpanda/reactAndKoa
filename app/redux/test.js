@@ -9,4 +9,3 @@ store.dispatch({
     text: "test"
 })
 let storeState = store.getState();
-console.log(storeState);

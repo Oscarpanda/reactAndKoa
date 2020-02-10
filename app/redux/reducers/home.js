@@ -4,7 +4,6 @@ const defaultState = {
 }
 
 export default function (state = defaultState, action) {
-  console.log("reducers", action)
   switch (action.type) {
     case "INIT_HOME":
       return {title: "Hello New Route"}

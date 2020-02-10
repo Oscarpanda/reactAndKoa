@@ -20,7 +20,6 @@ export default ctx => {
     }); // 调用组件内部的asyncData,这里就修改了store
     Promise.all(promises).then(() => {
       // setTimeout(() => {
-      console.log("promisesAll");
       ctx.store = store;
       resolve(
         <Provider store = {store}>

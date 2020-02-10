@@ -4,7 +4,6 @@ const baseConfig = require("./webpack.base.config");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const config = require("./config")[process.env.NODE_ENV];
-console.log("config", config);
 const clientConfig = merge(baseConfig, {
   devtool: config.devtool,
   mode: config.env,
