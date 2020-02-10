@@ -1,5 +1,6 @@
 import axios from "axios";
 import uuid from "uuid/v1"
+import http from "./../../utils/http.js"
 export const addTodo = (text, id, name = "test" ) => {
   return {
     type: "ADD_TODO",
@@ -10,16 +11,13 @@ export const addTodo = (text, id, name = "test" ) => {
 }
 export const addTodoToDB = (text, name = "test") => {
   let id = uuid()
+  const datas = {
+    name,
+    ListContent: text,
+    id
+  };
   return function (dispatch) {
-    return axios({
-      method: "post",
-      url: "http://127.0.0.1:9000/api/todoList/addList",
-      data: {
-        name,
-        ListContent: text,
-        id
-      },
-    }).then((data) => {
+    return http("api/todoList/addList", datas).then((data) => {
       console.log("axios", data);
       dispatch(addTodo(text, id, name));
     })
@@ -38,14 +36,12 @@ export const deleteTodo = id => {
   }
 }
 export const deleteTodoDB = id => {
+  const datas = {
+    id
+  }
   return (dispatch) => {
-    return axios({
-      method: "post",
-      url: "http://127.0.0.1:9000/api/todoList/deleteListByID",
-      data: {
-        id
-      },
-    }).then((data) => {
+    return http("api/todoList/deleteListByID", datas
+    ).then((data) => {
       console.log("axios", data);
       dispatch(deleteTodo(id));
     })

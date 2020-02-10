@@ -5,6 +5,7 @@ import VisibleTodoList from  "../containers/VisibleTodoList";
 import { render } from 'react-dom';
 import axios from "axios";
 import {displayTodo} from "../redux/actions"
+import http from "./../utils/http.js"
 
 
 class TodoLists extends React.Component{
@@ -13,13 +14,7 @@ class TodoLists extends React.Component{
   }
   static asyncData(store) {
     console.log('asyncData');
-    return axios({
-      method: "post",
-      url: "http://127.0.0.1:9000/api/todoList/findListByName",
-      data: {
-        name: "test"
-      }
-    }).then((data) => {
+    return http("api/todoList/findListByName", {name: "test"}).then((data) => {
       console.log("axios", data);
       store.dispatch(displayTodo(data.data));
     })
