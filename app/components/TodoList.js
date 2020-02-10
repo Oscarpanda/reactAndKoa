@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from "./Todo";
 const TodoList = ({ todos, onTodoClick , onCancelClick}) => (
-  <ul>
+  <div>
     {
       todos.map( todo => (
         <Todo key = {todo.id} {...todo} onClick = {() =>
@@ -9,6 +9,6 @@ const TodoList = ({ todos, onTodoClick , onCancelClick}) => (
         } CancelClick={() => onCancelClick(todo.id)}/>
       ))
     }
-  </ul>
+  </div>
 )
 export default TodoList
