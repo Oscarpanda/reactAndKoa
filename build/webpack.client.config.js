@@ -11,8 +11,7 @@ const clientConfig = merge(baseConfig, {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify("development"),
-
+        NODE_ENV: JSON.stringify(config.env),
       }
     }),
     new HtmlWebpackPlugin({
