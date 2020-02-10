@@ -40,4 +40,20 @@ todoList.post("/deleteListByID", async (ctx) => {
     };
   }
 })
+todoList.post("/listcompleted", async (ctx) => {
+  let completed = ctx.request.body.completed;
+  let id = ctx.request.body.id;
+  let result = await todoListModel.update({id}, {completed});
+  if (result) {
+    ctx.body = {
+      code: 0,
+      msg: "success"
+    };
+  } else {
+    ctx.body = {
+      code: -1,
+      msg: "fail"
+    };
+  }
+})
 module.exports =  todoList;

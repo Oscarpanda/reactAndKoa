@@ -61,6 +61,25 @@ export const toggleTodo = id => {
     id
   }
 }
+export const setTodoState = (id, state) => {
+  return {
+    type: 'SET_TODO_STATE',
+    id,
+    state
+  }
+}
+export const setTodoStateDB = (id, state) => {
+  const datas = {
+    id,
+    completed: state
+  }
+  return (dispatch) => {
+    return http("api/todoList/listcompleted", datas
+    ).then((data) => {
+      dispatch(setTodoState(id, state));
+    })
+  }
+}
 export const HomeAction = () => {
   return {
     type: 'INIT_HOME',

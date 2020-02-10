@@ -18,6 +18,11 @@ const todos = (state = [], action) => {
         (todo.id === action.id) ?
         {...todo, completed: !todo.completed} : todo
       )
+    case "SET_TODO_STATE":
+      return state.map(todo =>
+        (todo.id === action.id) ?
+        {...todo, completed: action.state} : todo
+      )
 
     default:
       return state

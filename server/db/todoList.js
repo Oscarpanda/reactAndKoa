@@ -3,6 +3,10 @@ let todoListSchema = mongoose.Schema({
   name: String,
   ListContent: String,
   id: String,
+  completed: {
+    type: Boolean,
+    default: false,
+  },
   updated: {
     type: Date,
     default: Date.now
