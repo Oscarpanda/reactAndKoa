@@ -6,12 +6,12 @@ const todos = (state = [], action) => {
       return state.filter(item => item.id !== action.id);
     case "ADD_TODO":
       return [
-        ...state,
         {
           id: action.id,
           ListContent: action.text,
           completed: false
-        }
+        },
+        ...state,
       ]
     case "TOGGLE_TODO":
       return state.map(todo =>
