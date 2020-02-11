@@ -1,6 +1,6 @@
 import React from "react";
 import style from './../style/todo.css';
-const Todo = ({ onClick, completed, ListContent, CancelClick}) =>(
+const Todo = ({ onClick, completed, ListContent, CancelClick, name}) =>(
   <div className={style.todo}>
     <li
       onClick = {onClick}
@@ -9,7 +9,7 @@ const Todo = ({ onClick, completed, ListContent, CancelClick}) =>(
          display: 'inline-block',
        }
       }
-    >{ListContent}</li>
+    >{name}:{ListContent}</li>
     <span onClick={CancelClick}> x</span>
 
   </div>

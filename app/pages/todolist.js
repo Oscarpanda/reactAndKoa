@@ -6,25 +6,25 @@ import { render } from 'react-dom';
 import axios from "axios";
 import {displayTodo} from "../redux/actions"
 import http from "./../utils/http.js"
-import Hello from "./../components/hello";
 import OnePerson from "./../components/OnePersion";
+import style from './../style/todo.css';
 
 class TodoLists extends React.Component{
   constructor() {
     super();
   }
   static asyncData(store) {
-    let user1 = http("api/todoList/findListByName", {name: "yilei"}).then((data) => {
+    let user1 = http("api/todoList/findListByName", {name: "艺蕾"}).then((data) => {
       return {
-        "yilei": {
+        "艺蕾": {
           visible: "SHOW_ACTIVE",
           data: data.data
         }
       }
     })
-    let user2 = http("api/todoList/findListByName", {name: "gaoxiong"}).then((data) => {
+    let user2 = http("api/todoList/findListByName", {name: "高雄"}).then((data) => {
       return {
-        "gaoxiong": {
+        "高雄": {
           visible: "SHOW_ACTIVE",
           data: data.data
         }
@@ -37,11 +37,10 @@ class TodoLists extends React.Component{
   }
   render() {
     return (
-      <div>
-        <Hello/>
+      <div className={style.todo}>
 
-        <OnePerson name="gaoxiong"/>
-        <OnePerson name="yilei"/>
+        <OnePerson name="艺蕾"/>
+        <OnePerson name="高雄"/>
       </div>
     )
   }

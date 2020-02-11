@@ -14,6 +14,7 @@ const todos = (state = {}, action) => {
     case "ADD_TODO":
       state[action.name].data.unshift(
         {
+          name: action.name,
           id: action.id,
           ListContent: action.text,
           completed: false

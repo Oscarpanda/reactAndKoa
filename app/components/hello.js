@@ -1,6 +1,6 @@
 import React from "react"
-export default function hello() {
+export default function hello(props) {
   return (
-    <h1>小熊管家</h1>
+  <h1>{props.name}管家</h1>
   )
 }
