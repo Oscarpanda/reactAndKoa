@@ -7,24 +7,41 @@ import axios from "axios";
 import {displayTodo} from "../redux/actions"
 import http from "./../utils/http.js"
 import Hello from "./../components/hello";
-
+import OnePerson from "./../components/OnePersion";
 
 class TodoLists extends React.Component{
   constructor() {
     super();
   }
   static asyncData(store) {
-    return http("api/todoList/findListByName", {name: "test"}).then((data) => {
-      store.dispatch(displayTodo(data.data));
+    let user1 = http("api/todoList/findListByName", {name: "yilei"}).then((data) => {
+      return {
+        "yilei": {
+          visible: "SHOW_ACTIVE",
+          data: data.data
+        }
+      }
+    })
+    let user2 = http("api/todoList/findListByName", {name: "gaoxiong"}).then((data) => {
+      return {
+        "gaoxiong": {
+          visible: "SHOW_ACTIVE",
+          data: data.data
+        }
+      }
+    })
+    return Promise.all([user1, user2]).then((data) => {
+      console.log(data, "data");
+      store.dispatch(displayTodo(Object.assign({}, data[0], data[1])));
     })
   }
   render() {
     return (
       <div>
         <Hello/>
-        <AddTodo/>
-        <VisibleTodoList/>
-        <Footer/>
+
+        <OnePerson name="gaoxiong"/>
+        <OnePerson name="yilei"/>
       </div>
     )
   }

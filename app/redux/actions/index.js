@@ -46,10 +46,11 @@ export const deleteTodoDB = id => {
 
   }
 }
-export const setVisibilityFilter = filter => {
+export const setVisibilityFilter = (filter, name) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
-    filter
+    filter,
+    name,
   }
 }
 
@@ -59,11 +60,12 @@ export const toggleTodo = id => {
     id
   }
 }
-export const setTodoState = (id, state) => {
+export const setTodoState = (id, state, name) => {
   return {
     type: 'SET_TODO_STATE',
     id,
-    state
+    state,
+    name
   }
 }
 export const setTodoStateDB = (id, state) => {

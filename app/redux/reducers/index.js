@@ -11,5 +11,5 @@ export default combineReducers({
   home,
   list,
   todos,
-  visibilityFilter,
+  // visibilityFilter,
 })

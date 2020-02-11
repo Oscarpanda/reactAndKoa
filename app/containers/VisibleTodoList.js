@@ -8,14 +8,15 @@ const getVisibleTodos = (todos, filter) => {
     case "SHOW_ACTIVE":
       return todos.filter( t => !t.completed)
     case "SHOW_ALL":
+      return [...todos]
     default:
       return todos
 
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownprops) => {
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos: getVisibleTodos(state.todos[ownprops.name].data, state.todos[ownprops.name].visible)
   }
 }
 const mapDispatchToProps = dispatch => {

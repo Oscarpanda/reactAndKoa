@@ -6,7 +6,6 @@ import createStore from './redux/store/create';
 const defaultStore =window.__STORE__ || {};
 console.log(defaultStore, "defaultStore");
 const store = createStore(defaultStore);
-import "./redux/test";
 
 
 import {

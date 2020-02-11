@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
 import {addTodoToDB} from "../redux/actions"
-let AddTodo = ({dispatch}) => {
+let AddTodo = (props) => {
+  const {dispatch, name} = props
   let input
   return (
     <div>
@@ -12,7 +13,7 @@ let AddTodo = ({dispatch}) => {
             if (!input.value.trim()) {
               return
             }
-            dispatch(addTodoToDB(input.value))
+            dispatch(addTodoToDB(input.value, name))
             input.value = ""
           }
         }
@@ -29,5 +30,17 @@ let AddTodo = ({dispatch}) => {
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
+const mapStateToProps = (state, ownProps) => {
+  return {
+    name: ownProps.name,
+  }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(setVisibilityFilter(ownProps.filter, ownProps.name))
+    }
+  }
+}
+AddTodo = connect(mapStateToProps)(AddTodo)
 export default AddTodo;
